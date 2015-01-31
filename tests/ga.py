@@ -6,7 +6,11 @@ class TestGA(unittest.TestCase):
     def test_request(self):
         from pyga.requests import Tracker, Visitor, Session, Page
         from mock import Mock
-        from urlparse import urlparse, parse_qs
+        import sys
+        if sys.version > '3':
+            from urllib.parse import urlparse, parse_qs
+        else:
+            from urlparse import urlparse, parse_qs
         import urllib2
 
         mocked = urllib2.urlopen = Mock()

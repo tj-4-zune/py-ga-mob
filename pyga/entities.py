@@ -2,7 +2,11 @@
 
 from datetime import datetime
 from operator import itemgetter
-from urlparse import urlparse
+import sys
+if sys.version > '3':
+    from urllib.parse import urlparse
+else:
+    from urlparse import urlparse
 from urllib import unquote_plus
 from pyga import utils
 from pyga import exceptions
