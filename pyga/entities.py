@@ -5,9 +5,10 @@ from operator import itemgetter
 import sys
 if sys.version > '3':
     from urllib.parse import urlparse
+    from urllib.parse import unquote_plus
 else:
     from urlparse import urlparse
-from urllib import unquote_plus
+    from urllib import unquote_plus
 from pyga import utils
 from pyga import exceptions
 
