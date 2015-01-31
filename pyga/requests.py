@@ -6,7 +6,6 @@ from math import floor
 from pyga.entities import Campaign, CustomVariable, Event, Item, Page, Session, SocialInteraction, Transaction, Visitor
 import pyga.utils as utils
 import urllib
-import urllib2
 
 __author__ = "Arun KR (kra3) <the1.arun@gmail.com>"
 __license__ = "Simplified BSD"
@@ -73,7 +72,7 @@ class GIFRequest(object):
         logger.debug(url)
         if post:
             logger.debug(post)
-        return urllib2.Request(url, post, headers)
+        return urllib.Request(url, post, headers)
 
     def build_parameters(self):
         '''Marker implementation'''
@@ -85,7 +84,7 @@ class GIFRequest(object):
 
         #  Do not actually send the request if endpoint host is set to null
         if self.config.endpoint:
-            response = urllib2.urlopen(
+            response = urllib.urlopen(
                 request, timeout=self.config.request_timeout)
 
         return response
